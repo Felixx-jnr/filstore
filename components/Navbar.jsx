@@ -11,6 +11,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
+//FADE IN ANIMATIONS
 const fadeInVariant = {
   initial: { opacity: 0 },
   animate: {
@@ -62,115 +63,35 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <>
-      <div className="fixed left-1/2 -translate-x-1/2 w-[100%] rounded-lg z-50">
-        <nav>
-          <motion.div
-            variants={fadeInVariant}
-            animate="animate"
-            initial="initial"
-            className=" bg-[#912056]/10 max-md:border-2 max-md:border-[#912056]/50 mx-auto flex justify-between items-center w-[86%] h-10 nav px-3 rounded-xl backdrop-blur-xl "
-          >
-            <div>
-              <a
-                href="#"
-                className="font-bold text-xl sm:text-2xl md:text-3xl"
-              >
-                FELIX UDOH
-              </a>
-            </div>
+    <div className=" " >
+      <div className=" bg-amber-300 ">
+        top banner
+      </div>
 
-            <div className="hidden md:block">
-              <ul className="flex space-x-3 lg:space-x-8 text-xl font-semibold">
-                <li>
-                  <a href="#project">Project</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://drive.google.com/file/d/18WJuXwGb8agrcUUNyXKaLHOTDVeYhKL9/view?usp=drive_link"
-                  >
-                    Resume
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div className=" sticky top-0 bg-green-400">
+        <div >second banner</div>
 
-            <div className="hidden md:block">
-              <ul className="flex space-x-2 lg:space-x-4  text-2xl">
-                <li>
-                  <a
-                    target="_blank"
-                    href={linkedin}
-                  >
-                    <FaLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href={github}
-                  >
-                    <FaGithub />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href={twitter}
-                  >
-                    <FaXTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href={email}
-                  >
-                    <FaEnvelope />
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <div className=" w-[100%]">
+          <nav>
+            <motion.div
+              // variants={fadeInVariant}
+              // animate="animate"
+              // initial="initial"
+              className=" flex sticky top-0 justify-between items-center"
+            >
+              {/* LOGO */}
+              <div className=" ">
+                <a
+                  href="#"
+                  className="font-bold text-xl "
+                >
+                  FELIX UDOH
+                </a>
+              </div>
 
-            <div className="block md:hidden">
-              {/* Hamburger menu for mobile */}
-              <button
-                className="font-bold text-xl sm:text-2xl md:text-3xl bars-button flex "
-                onClick={toggleMenu}
-              >
-                {isMenuOpen ? "" : <FaBars />}
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Mobile menu with overlay */}
-          {isMenuOpen && (
-            <>
-              <div
-                className="fixed"
-                onClick={toggleMenu}
-              ></div>
-              <div
-                className={`absolute drop flex flex-col justify-center items-center -top-2 right-0 md:hidden z-50 h-screen w-screen ${animateClass}`}
-                ref={dropdownRef}
-              >
-                <div className="absolute top-2 flex justify-between items-center w-[86%] h-10 px-3 rounded-xl backdrop-blur-lg max-md:border-2 max-md:border-[#912056]/50 bg-[#912056]/10">
-                  <div>
-                    <a
-                      href="#"
-                      className="font-bold text-xl sm:text-2xl md:text-3xl"
-                    >
-                      FELIX UDOH
-                    </a>
-                  </div>
-                  <FaTimes className="font-bold text-xl sm:text-2xl md:text-3xl cursor-pointer" />
-                </div>
-
-                <ul className="flex flex-col mt-3 space-y-3 items-center text-xl sm:text-2xl font-semibold">
+              {/* NAV LINKS */}
+              <div className="hidden md:block">
+                <ul className="flex space-x-3 lg:space-x-8 text-xl font-semibold">
                   <li>
                     <a href="#project">Project</a>
                   </li>
@@ -186,59 +107,145 @@ const Navbar = () => {
                     </a>
                   </li>
                 </ul>
+              </div>
 
-                <div>
-                  <ul className="flex space-x-3 sm:space-x-5 justify-center my-4 text-xl sm:text-2xl">
-                    <li>
+              {/* NAV LOGOS */}
+              <div className="hidden md:block">
+                <ul className="flex space-x-2 lg:space-x-4  text-2xl">
+                  <li>
+                    <a
+                      target="_blank"
+                      href={linkedin}
+                    >
+                      <FaLinkedin />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href={github}
+                    >
+                      <FaGithub />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href={twitter}
+                    >
+                      <FaXTwitter />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href={email}
+                    >
+                      <FaEnvelope />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+              <div className="block md:hidden">
+                {/* Hamburger menu for mobile */}
+                <button
+                  className="font-bold text-xl sm:text-2xl md:text-3xl bars-button flex "
+                  onClick={toggleMenu}
+                >
+                  {isMenuOpen ? "" : <FaBars />}
+                </button>
+              </div>
+            </motion.div>
+
+
+            {/* Mobile menu with overlay */}
+            {isMenuOpen && (
+              <>
+                <div
+                  className="fixed"
+                  onClick={toggleMenu}
+                ></div>
+                <div
+                  className={`absolute drop flex flex-col justify-center items-center -top-2 right-0 md:hidden z-50 h-screen w-screen ${animateClass}`}
+                  ref={dropdownRef}
+                >
+                  <div className="absolute top-2 flex justify-between items-center w-[86%] h-10 px-3 rounded-xl backdrop-blur-lg max-md:border-2 max-md:border-[#912056]/50 bg-[#912056]/10">
+                    <div>
                       <a
-                        target="_blank"
-                        href={linkedin}
+                        href="#"
+                        className="font-bold text-xl sm:text-2xl md:text-3xl"
                       >
-                        <FaLinkedin />
+                        FELIX UDOH
                       </a>
+                    </div>
+                    <FaTimes className="font-bold text-xl sm:text-2xl md:text-3xl cursor-pointer" />
+                  </div>
+
+                  <ul className="flex flex-col mt-3 space-y-3 items-center text-xl sm:text-2xl font-semibold">
+                    <li>
+                      <a href="#project">Project</a>
+                    </li>
+                    <li>
+                      <a href="#contact">Contact</a>
                     </li>
                     <li>
                       <a
                         target="_blank"
-                        href={github}
+                        href="https://drive.google.com/file/d/18WJuXwGb8agrcUUNyXKaLHOTDVeYhKL9/view?usp=drive_link"
                       >
-                        <FaGithub />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        href={twitter}
-                      >
-                        <FaXTwitter />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        href={email}
-                      >
-                        <FaEnvelope />
+                        Resume
                       </a>
                     </li>
                   </ul>
+
+                  <div>
+                    <ul className="flex space-x-3 sm:space-x-5 justify-center my-4 text-xl sm:text-2xl">
+                      <li>
+                        <a
+                          target="_blank"
+                          href={linkedin}
+                        >
+                          <FaLinkedin />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          target="_blank"
+                          href={github}
+                        >
+                          <FaGithub />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          target="_blank"
+                          href={twitter}
+                        >
+                          <FaXTwitter />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          target="_blank"
+                          href={email}
+                        >
+                          <FaEnvelope />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
-        </nav>
+              </>
+            )}
+          </nav>
+        </div>
       </div>
 
-      <div className=" fixed -rotate-90 -right-24 bottom-0 mb-20 flex justify-center items-center gap-2 ">
-        <div className="h-1 w-20 bg-[#844]"></div>
-        <p>uyuoukoh@gmail.com</p>
-      </div>
 
-      <div className=" fixed -rotate-90 -left-52 p-1 bottom-0 mb-20 flex justify-center items-center gap-2 ">
-        <div className="h-1 w-72 bg-[#844]"></div>
-        <p>uyuoukoh@gmail.com</p>
-      </div>
-    </>
+      <div className="h-[2000px]"></div>
+    </div>
   );
 };
 
